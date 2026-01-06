@@ -9,17 +9,13 @@ def realtime_hms_ms():
     return now.strftime("%H:%M:%S") + f":{now.microsecond // 1000:03d}"
 
 
-# 1️⃣ Storage check
 SystemStorage().check()
 
-# 2️⃣ Initialize logger
 logger = BasicLogger()
 logger.initialize_logger(file_type="csv", compress=True)
 
-# 3️⃣ Headers
 logger.headers("time", "sensor", "value", "status")
 
-# 4️⃣ Start logging
 logger.start()
 
 i = 0
